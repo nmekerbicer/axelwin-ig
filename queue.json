@@ -1,0 +1,84 @@
+{
+  "_readme": [
+    "One entry per post. publish.py picks up entries with status 'pending' whose publish_at has passed.",
+    "publish_at is UTC. Hamburg is UTC+2 in summer and UTC+1 in winter, so 09:00 Hamburg summer time is 07:00 here.",
+    "type is IMAGE, CAROUSEL or REEL. files are names inside assets/, in true slide order. No scramble compensation, the API keeps the order given.",
+    "Images must be JPEG. Carousels take up to 10 slides. Captions carry real line breaks as \\n.",
+    "Set status to 'pending' when a post is approved and ready. Anything else is ignored.",
+    "After a run the workflow fills in status, ig_media_id, permalink and published_at."
+  ],
+  "posts": [
+    {
+      "id": "smoke-test",
+      "status": "example",
+      "publish_at": "2027-01-01T09:00:00Z",
+      "type": "CAROUSEL",
+      "pillar": "test only, never publishes",
+      "files": [
+        "sample_aug17_01.jpg",
+        "sample_aug17_02.jpg",
+        "sample_aug17_03.jpg",
+        "sample_aug17_04.jpg",
+        "sample_aug17_05.jpg",
+        "sample_aug17_06.jpg",
+        "sample_aug17_07.jpg",
+        "sample_aug17_08.jpg"
+      ],
+      "caption": "Smoke test. Run the workflow with dry run ticked to confirm the assets are reachable from the public internet.",
+      "ig_media_id": "",
+      "permalink": "",
+      "published_at": "",
+      "error": ""
+    },
+    {
+      "id": "example-carousel",
+      "status": "template",
+      "publish_at": "2026-08-19T07:00:00Z",
+      "type": "CAROUSEL",
+      "pillar": "P1 Germany Decoded",
+      "files": [
+        "aug19_01.jpg",
+        "aug19_02.jpg",
+        "aug19_03.jpg"
+      ],
+      "caption": "First line carries the search phrase.\n\nBody.\n\n#GermanMarketEntry #DTC #Ecommerce",
+      "location_id": "",
+      "ig_media_id": "",
+      "permalink": "",
+      "published_at": "",
+      "error": ""
+    },
+    {
+      "id": "example-reel",
+      "status": "template",
+      "publish_at": "2026-08-20T07:00:00Z",
+      "type": "REEL",
+      "pillar": "P5 Operator in Hamburg",
+      "files": [
+        "aug20_reel.mp4"
+      ],
+      "cover": "aug20_cover.jpg",
+      "share_to_feed": true,
+      "caption": "Search phrase first.\n\nBody.\n\n#EUExpansion #ShopifyPartner",
+      "ig_media_id": "",
+      "permalink": "",
+      "published_at": "",
+      "error": ""
+    },
+    {
+      "id": "example-single",
+      "status": "template",
+      "publish_at": "2026-08-21T07:00:00Z",
+      "type": "IMAGE",
+      "pillar": "P6 Shopify",
+      "files": [
+        "aug21_01.jpg"
+      ],
+      "caption": "Search phrase first.\n\nBody.\n\n#Shopify #GermanMarketEntry",
+      "ig_media_id": "",
+      "permalink": "",
+      "published_at": "",
+      "error": ""
+    }
+  ]
+}
