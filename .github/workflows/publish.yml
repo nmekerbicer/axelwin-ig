@@ -29,6 +29,15 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Hold this runner until the slot
+        if: ${{ !inputs.dry_run }}
+        run: |
+          T=$(python3 -c "import json;q=json.load(open('queue.json'));p=sorted(x['publish_at'] for x in q['posts'] if x.get('status')=='pending');print(p[0] if p else '')")
+          if [ -z "$T" ]; then echo "no pending posts, nothing to hold for"; exit 0; fi
+          TS=$(date -u -d "$T" +%s); NOW=$(date -u +%s); W=$((TS-NOW))
+          echo "next pending slot $T, $W seconds away"
+          if [ "$W" -gt 0 ] && [ "$W" -le 14400 ]; then echo "holding this runner until the slot"; sleep "$W"; sleep 10; fi
+
       - name: Publish
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
