@@ -22,5 +22,17 @@
         "error": "OAuthException 9007: Media ID is not available"
       }
     ]
+  },
+  {
+    "run_at": "2026-08-14T08:48:41+00:00",
+    "results": [
+      {
+        "id": "2026-08-14-checkout",
+        "status": "published",
+        "ig_media_id": "17894713011604448",
+        "permalink": "https://www.instagram.com/p/DcA6_mEnGIb/",
+        "error": ""
+      }
+    ]
   }
 ]
