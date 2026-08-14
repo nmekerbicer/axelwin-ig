@@ -180,6 +180,7 @@ def publish(post):
         log("  dry run, assets reachable, nothing published")
         return {"status": "pending", "dry_run_ok": True}
     container = build_container(post)
+    wait_for_container(container)
     result = api(f"{IG_USER_ID}/media_publish", {"creation_id": container}, post=True)
     media_id = result["id"]
     permalink = ""
