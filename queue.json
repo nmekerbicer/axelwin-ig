@@ -30,7 +30,7 @@
     },
     {
       "id": "2026-08-14-checkout",
-      "status": "pending",
+      "status": "error",
       "publish_at": "2026-08-14T06:50:00Z",
       "type": "CAROUSEL",
       "pillar": "P1 Germany Decoded",
@@ -48,7 +48,7 @@
       "ig_media_id": "",
       "permalink": "",
       "published_at": "",
-      "error": ""
+      "error": "OAuthException 9007: Media ID is not available"
     },
     {
       "id": "2026-08-17-lawyer",
