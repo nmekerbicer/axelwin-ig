@@ -1,7 +1,7 @@
 {
   "_readme": [
     "One entry per post. publish.py picks up entries with status 'pending' whose publish_at has passed.",
-    "publish_at is UTC. Hamburg is UTC+2 until 25 October 2026, so 08:35 Hamburg is 06:35Z. After the clocks change on 25 October it is 07:35Z. The workflow holds a runner and wakes at this exact time, so this is the real publish time, not an earliest time.",
+    "publish_at is UTC. Hamburg is UTC+2 until 25 October 2026, so 08:00 Hamburg is 06:00Z. After the clocks change on 25 October it is 07:00Z. The workflow holds a runner and wakes at this exact time, so this is the real publish time, not an earliest time.",
     "type is IMAGE, CAROUSEL or REEL. files are names inside assets/, in true reading order.",
     "Images must be JPEG. Carousels take up to 10 slides.",
     "status: pending means armed. template and example are ignored. published, error and missed are results."
@@ -53,7 +53,7 @@
     {
       "id": "2026-08-17-lawyer",
       "status": "pending",
-      "publish_at": "2026-08-17T06:35:00Z",
+      "publish_at": "2026-08-17T06:00:00Z",
       "type": "CAROUSEL",
       "pillar": "P5 Operator in Hamburg + P2 The Legal Edge",
       "files": [
@@ -70,7 +70,7 @@
     {
       "id": "2026-08-18-legalwall",
       "status": "pending",
-      "publish_at": "2026-08-18T06:35:00Z",
+      "publish_at": "2026-08-18T06:00:00Z",
       "type": "CAROUSEL",
       "pillar": "P2 The Legal Edge",
       "files": [
@@ -92,7 +92,7 @@
     {
       "id": "2026-08-19-growth",
       "status": "pending",
-      "publish_at": "2026-08-19T06:35:00Z",
+      "publish_at": "2026-08-19T06:00:00Z",
       "type": "IMAGE",
       "pillar": "P3 EU Regulation Radar",
       "files": [
