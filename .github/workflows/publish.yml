@@ -38,6 +38,15 @@ jobs:
           echo "next pending slot $T, $W seconds away"
           if [ "$W" -gt 0 ] && [ "$W" -le 14400 ]; then echo "holding this runner until the slot"; sleep "$W"; sleep 10; fi
 
+      # A queued run checks out the commit it was triggered on, which may predate
+      # a publish that happened while it waited behind the concurrency lock. Without
+      # this the run republishes the same post. Cost one duplicate on 17 August 2026.
+      - name: Refresh the queue before publishing
+        run: |
+          git fetch origin ${{ github.ref_name }}
+          git reset --hard origin/${{ github.ref_name }}
+          echo "queue refreshed to $(git rev-parse --short HEAD)"
+
       - name: Publish
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
