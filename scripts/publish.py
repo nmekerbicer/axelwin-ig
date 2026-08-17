@@ -172,6 +172,37 @@ def build_container(post):
     raise RuntimeError(f"unknown post type {ptype!r}")
 
 
+def already_on_the_account(post):
+    """Ask Instagram whether this caption is already live.
+
+    queue.json can be stale, a run can be retried, two runs can race behind
+    the concurrency lock. The account is the only honest source of truth, so
+    check it before posting anything. Cost one duplicate on 17 August 2026.
+    """
+    head = post.get("caption", "").strip().split("\n")[0].strip()[:60]
+    if not head:
+        return None
+    try:
+        recent = api(f"{IG_USER_ID}/media",
+                     {"fields": "id,caption,timestamp,permalink", "limit": 15})
+    except Exception as e:
+        log(f"  could not read recent media, publishing anyway: {e}")
+        return None
+    now = dt.datetime.now(dt.timezone.utc)
+    for m in recent.get("data", []):
+        cap = (m.get("caption") or "").strip().split("\n")[0].strip()[:60]
+        if cap != head:
+            continue
+        try:
+            when = dt.datetime.fromisoformat(m["timestamp"])
+        except Exception:
+            return m
+        # Only a recent match counts, so a deliberate repost months later still runs.
+        if (now - when).total_seconds() <= 6 * 3600:
+            return m
+    return None
+
+
 def publish(post):
     log(f"publishing {post['id']} ({post['type']}, {len(post.get('files', []))} file(s))")
     if DRY_RUN:
@@ -179,6 +210,16 @@ def publish(post):
             check_reachable(asset_url(f))
         log("  dry run, assets reachable, nothing published")
         return {"status": "pending", "dry_run_ok": True}
+    seen = already_on_the_account(post)
+    if seen:
+        log(f"  already live as {seen['id']}, refusing to post it twice")
+        return {
+            "status": "published",
+            "ig_media_id": seen["id"],
+            "permalink": seen.get("permalink", ""),
+            "published_at": seen.get("timestamp", ""),
+            "error": "",
+        }
     container = build_container(post)
     wait_for_container(container)
     result = api(f"{IG_USER_ID}/media_publish", {"creation_id": container}, post=True)
