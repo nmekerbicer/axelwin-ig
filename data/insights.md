@@ -1,16 +1,18 @@
 # @axelwin_agency insights
 
-Generated 2026-08-24T07:19:25+00:00 UTC. Account totals cover the last 30 days.
+Generated 2026-08-31T13:45:54+00:00 UTC. Account totals cover the last 30 days.
 
-- Followers: 26
-- Posts: 9
-- Reach (30d): 23
-- Profile views (30d): 23
+- Followers: 28
+- Posts: 11
+- Reach (30d): 29
+- Profile views (30d): 11
 - Website clicks (30d): 0
-- Accounts engaged (30d): 14
+- Accounts engaged (30d): 10
 
 | Posted | Type | Hook | Reach | Views | Saves | Shares | Likes | Comments |
 |---|---|---|---|---|---|---|---|---|
+| 2026-08-26 | REELS | [Hamburg’s most photographed district is a customs workaround.](https://www.instagram.com/reel/Dcfnrj2ou2_/) | 13 | 15 | 0 | 0 | 2 | 1 |
+| 2026-08-24 | REELS | [Morning in the city.🏙️ ](https://www.instagram.com/reel/Dcanrd2IXEY/) | 13 | 23 | 1 | 0 | 6 | 1 |
 | 2026-08-19 | FEED | [German ecommerce is growing again, and Germany is still the key to Eur](https://www.instagram.com/p/DcNfoVAoAf3/) | 10 | 26 | 0 | 0 | 2 | 0 |
 | 2026-08-18 | FEED | [Five points where a German launch gets stopped.](https://www.instagram.com/p/DcK647zHBfp/) | 9 | 26 | 0 | 0 | 3 | 0 |
 | 2026-08-17 | FEED | [They say you can guess someone's job from the laptop.](https://www.instagram.com/p/DcIWDjzFsJE/) | 20 | 67 | 0 | 0 | 8 | 1 |
