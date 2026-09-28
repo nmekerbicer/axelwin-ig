@@ -1,13 +1,13 @@
 # @axelwin_agency insights
 
-Generated 2026-09-21T12:44:42+00:00 UTC. Account totals cover the last 30 days.
+Generated 2026-09-28T13:49:46+00:00 UTC. Account totals cover the last 30 days.
 
 - Followers: 27
 - Posts: 11
-- Reach (30d): 19
-- Profile views (30d): 4
+- Reach (30d): 0
+- Profile views (30d): 3
 - Website clicks (30d): 0
-- Accounts engaged (30d): 6
+- Accounts engaged (30d): 0
 
 | Posted | Type | Hook | Reach | Views | Saves | Shares | Likes | Comments |
 |---|---|---|---|---|---|---|---|---|
